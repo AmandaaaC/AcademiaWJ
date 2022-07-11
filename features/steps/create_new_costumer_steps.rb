@@ -32,10 +32,6 @@ end
 
   
 Então('devo ser cadastrada com sucesso') do 
-    #expect(page).to have_contente mensagem
     expect(page).to have_text 'Thank you for registering with Main Website Store.'
 end
   
-# Então('devo ver a seguinte mensagem: {string}') do |frase|
-#     expect(page).to have_content frase
-# end
