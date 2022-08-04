@@ -1,4 +1,5 @@
 #language:pt
+@teste
 Funcionalidade: teste E2E
 
     Para que eu possa realizar um teste E2E
@@ -9,9 +10,9 @@ Funcionalidade: teste E2E
     Cenário: Autenticação de usuário
 
         Dado que eu acesso a página de login
-        Quando eu realizo meu login com 'amanda@webjump.com.br', 'Amanda123@@'
-        Então devo ver a seguinte mensagem: "Welcome, Amanda Colloca!"
-    
+        Quando eu realizo meu login com 'roni_cost@example.com', 'roni_cost3@example.com'
+        Então devo ver a seguinte mensagem: "Default welcome msg!"
+        
     Cenário: Escolher um produto
 
         Dado que eu acesso a página Jackets

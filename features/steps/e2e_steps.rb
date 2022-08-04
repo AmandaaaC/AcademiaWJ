@@ -1,13 +1,16 @@
+require_relative '../support/pages/authentication'
+auth_front = AuthenticationPage.new
+purchase_flow = Products.new
+
 Dado('que eu acesso a página de login') do
     
     visit 'https://magento.nublue.co.uk/customer/account/login/referer/aHR0cHM6Ly9tYWdlbnRvLm51Ymx1ZS5jby51ay9jdXN0b21lci9hY2NvdW50L2NyZWF0ZS8%2C/https://magento.nublue.co.uk/customer/account/create'
 end
 
-Quando('eu realizo meu login com {string}, {string}') do |email, password|
-    
-    find('#email').set email
-    find('#pass').set password
-    click_button 'Sign In'
+Quando('eu realizo meu login com {string}, {string}') do |valid_email, valid_password|
+
+    auth_front.login(valid_email,valid_password)
+    sleep 5
 end
 
 Dado('que eu acesso a página Jackets') do
@@ -17,9 +20,10 @@ end
 
 Quando('eu seleciono o tamanho S e a cor Purple') do
     
-    find('#product-item-info_1402').click    
-    find('#option-label-size-144-item-167').click
-    find('#option-label-color-93-item-57').click
+    purchase_flow.add_to_cart
+    # find('#product-item-info_1402').click    
+    # find('#option-label-size-144-item-167').click
+    # find('#option-label-color-93-item-57').click
 end
 
 E ('clico em Add to cart') do
