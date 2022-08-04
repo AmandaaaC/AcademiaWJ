@@ -1,6 +1,11 @@
 class Products
 include Capybara::DSL
 
+    def acess_products
+
+    visit 'https://magento.nublue.co.uk/women/tops-women/jackets-women.html'
+    end
+
     def add_to_cart
 
         find('#product-item-info_1402').click    
@@ -10,8 +15,14 @@ include Capybara::DSL
     end
 
     def click_add
-        
+
         find('button[title="Add to Cart"]').click
+    end
+
+    def cart
+          
+        page.has_css?('span[class="counter-number"]')
+     
     end
     
 end
