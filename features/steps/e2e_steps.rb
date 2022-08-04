@@ -1,6 +1,7 @@
 require_relative '../support/pages/authentication'
 auth_front = AuthenticationPage.new
 purchase_flow = Products.new
+add_button = Products.new
 
 Dado('que eu acesso a página de login') do
     
@@ -21,14 +22,13 @@ end
 Quando('eu seleciono o tamanho S e a cor Purple') do
     
     purchase_flow.add_to_cart
-    # find('#product-item-info_1402').click    
-    # find('#option-label-size-144-item-167').click
-    # find('#option-label-color-93-item-57').click
+
 end
 
 E ('clico em Add to cart') do
  
-    find('button[title="Add to Cart"]').click
+    add_button.click_add
+    
 end
 
 Então ('devo visualizar um item no carrinho') do

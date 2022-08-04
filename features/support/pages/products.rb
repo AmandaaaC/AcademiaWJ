@@ -8,5 +8,10 @@ include Capybara::DSL
         find('#option-label-color-93-item-57').click
         
     end
+
+    def click_add
+        
+        find('button[title="Add to Cart"]').click
+    end
     
 end
